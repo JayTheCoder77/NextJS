@@ -1,3 +1,5 @@
+import { FaStar } from "react-icons/fa";
+
 interface MovieProps {
   params: {
     id: string;
@@ -51,12 +53,34 @@ const MovieDetails = ({ params }: MovieProps) => {
       </div>
 
       {/* rating and comments summary  */}
-      <div>
-        <div>
+      <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <div className="flex justify-between items-center mb-6">
           <div>
-            <p>Rating</p>
+            <p className="text-xl text-gray-300">Rating</p>
+            <div className="flex items-center text-yellow-400">
+              <FaStar className="mr-1" />
+              <span className="text-2xl font-bold">{movie?.rating}</span>
+            </div>
+          </div>
+          <div>
+            <p className="text-xl text-gray-300">Comments</p>
+            <p className="text-2xl text-white">{movie?.comments}</p>
           </div>
         </div>
+      </div>
+      {/* comment section  */}
+      <div>
+        <h3 className="text-3xl font-semibold text-white mb-4">Comments</h3>
+        <ul className="space-y-4">
+          {movie?.commentsList.map((comment, index) => (
+            <li
+              key={index}
+              className="bg-gray-800 p-4 rounded-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <p className="text-gray-300">{comment}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
