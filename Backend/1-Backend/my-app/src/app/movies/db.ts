@@ -24,7 +24,7 @@ export const movies = [
     id: 4,
     name: "The Dark Knight",
     ratings: 4,
-    genre: "Action",  
+    genre: "Action",
   },
 
   {
